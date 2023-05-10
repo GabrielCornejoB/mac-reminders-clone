@@ -6,6 +6,8 @@
   padding: 10px;
   color: v.$txt-color-alt;
   border-radius: 10px;
+  cursor: pointer;
+  transition: 0.1s ease-in;
   .upper {
     @include m.flex(row, space-between);
     margin-bottom: 5px;
@@ -16,5 +18,8 @@
   }
   .title {
     font-weight: 600;
+  }
+  &:hover {
+    background: v.$gray-300;
   }
 }

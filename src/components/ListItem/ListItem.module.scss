@@ -1,0 +1,26 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.listItem {
+  @include m.flex(row, space-between);
+  width: 100%;
+  padding: 5px 15px 5px 10px;
+  border-radius: 7.5px;
+  margin-bottom: 5px;
+  transition: 0.1s ease-in;
+  cursor: pointer;
+  .left {
+    @include m.flex(row, flex-start);
+    gap: 10px;
+    h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+  }
+  span {
+    color: v.$txt-color-light;
+  }
+  &:hover {
+    background: v.$gray-200;
+  }
+}
