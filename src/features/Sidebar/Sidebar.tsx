@@ -24,7 +24,7 @@ const Sidebar = () => {
           <h4>My Lists</h4>
           <ul>
             <li>
-              <ListItem icon={<FaListUl />} color="#ff9500" title="To Do" />
+              <ListItem icon={<FaListUl />} color="#ff9500" title="Reminders" />
             </li>
           </ul>
         </section>

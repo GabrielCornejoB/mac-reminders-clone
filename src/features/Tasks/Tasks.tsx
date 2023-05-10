@@ -3,6 +3,7 @@ import { GoPlus } from "react-icons/go";
 import { MdIosShare } from "react-icons/md";
 
 import s from "./Tasks.module.scss";
+import Task from "./components/Task/Task";
 
 const Tasks = () => {
   return (
@@ -19,7 +20,11 @@ const Tasks = () => {
           <h1 className={s.count}>4</h1>
         </div>
       </header>
-      <ul></ul>
+      <ul>
+        <Task />
+        <Task />
+        <Task />
+      </ul>
     </main>
   );
 };
