@@ -1,0 +1,41 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.main {
+  width: calc(100% - v.$sidebar-width);
+  height: 100vh;
+  padding: 15px 20px;
+  @include m.flex(column, flex-start);
+  .header {
+    width: 100%;
+    @include m.flex(column);
+    .headerButtons {
+      width: 100%;
+      @include m.flex(row, flex-end);
+      gap: 15px;
+      color: v.$txt-color-light;
+      .icon {
+        cursor: pointer;
+        transition: 0.1s ease-in;
+        &:hover {
+          color: v.$txt-color-alt;
+        }
+      }
+    }
+    .headerTitle {
+      width: 100%;
+      @include m.flex(row, space-between);
+      font-size: 2.5rem;
+      margin-top: 25px;
+      color: #ff9500;
+
+      .title {
+        font-weight: 800;
+        font-family: "Varela Round", sans-serif;
+      }
+      .count {
+        font-weight: 400;
+      }
+    }
+  }
+}
