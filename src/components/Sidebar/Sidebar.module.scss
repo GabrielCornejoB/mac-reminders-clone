@@ -7,27 +7,65 @@
   min-width: v.$sidebar-width;
   width: v.$sidebar-width;
   padding: 15px;
-  @include m.flex(column, flex-start, flex-start);
+  @include m.flex(column, space-between, flex-start);
   gap: 30px;
 
-  .cards {
+  .upper {
     width: 100%;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-  }
-
-  .lists {
     @include m.flex(column, flex-start, flex-start);
-    width: 100%;
-    h4 {
-      color: v.$txt-color-light;
-      font-weight: 500;
-      font-size: 0.8rem;
-      padding: 0 0 7.5px 10px;
+    gap: 30px;
+    .windowButtons {
+      @include m.flex(row, flex-start);
+      gap: 7.5px;
+      div {
+        height: 15px;
+        width: 15px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.1s ease-in;
+        &:hover {
+          scale: 1.1;
+        }
+        &:nth-child(1) {
+          background: #ff6057;
+        }
+        &:nth-child(2) {
+          background: #febc2e;
+        }
+        &:nth-child(3) {
+          background: #29c740;
+        }
+      }
     }
-    ul {
+    .cards {
       width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    .lists {
+      @include m.flex(column, flex-start, flex-start);
+      width: 100%;
+      h4 {
+        color: v.$txt-color-light;
+        font-weight: 500;
+        font-size: 0.8rem;
+        padding: 0 0 7.5px 10px;
+      }
+      ul {
+        width: 100%;
+      }
+    }
+  }
+  .lower {
+    @include m.flex(row, flex-start);
+    gap: 10px;
+    color: v.$txt-color-alt;
+    font-weight: 600;
+    transition: 0.1s ease-in;
+    cursor: pointer;
+    &:hover {
+      color: v.$txt-color-light;
     }
   }
 }
