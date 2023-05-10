@@ -1,5 +1,5 @@
-import Card from "../Card/Card";
-import ListItem from "../ListItem/ListItem";
+import Card from "./components/Card/Card";
+import ListItem from "./components/ListItem/ListItem";
 
 import { IconContext } from "react-icons";
 import { FaCheck, FaInbox, FaListUl } from "react-icons/fa";

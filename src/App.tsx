@@ -1,5 +1,5 @@
 import s from "./App.module.scss";
-import { Sidebar, Tasks } from "./components";
+import { Sidebar, Tasks } from "./features";
 
 function App() {
   return (

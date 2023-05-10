@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import Icon from "../Icon/Icon";
+import Icon from "../../../ui/Icon/Icon";
 import s from "./Card.module.scss";
 
 interface Props {
