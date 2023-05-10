@@ -1,5 +1,13 @@
+import s from "./App.module.scss";
+import { Sidebar, Tasks } from "./components";
+
 function App() {
-  return <p>Hola mundo</p>;
+  return (
+    <div className={s.wrapper}>
+      <Sidebar />
+      <Tasks />
+    </div>
+  );
 }
 
 export default App;

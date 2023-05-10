@@ -1,0 +1,7 @@
+@use "./styles/mixins" as m;
+
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  @include m.flex(row, flex-start);
+}

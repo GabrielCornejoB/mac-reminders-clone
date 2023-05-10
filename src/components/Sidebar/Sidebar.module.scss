@@ -1,0 +1,16 @@
+@use "../../styles/variables" as v;
+
+.sidebar {
+  background: v.$gray-100;
+  height: 100%;
+  min-width: v.$sidebar-width;
+  width: v.$sidebar-width;
+  padding: 15px;
+
+  .cards {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+}
