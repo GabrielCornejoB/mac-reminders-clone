@@ -1,13 +1,16 @@
-import Card from "./components/Card/Card";
-import ListItem from "./components/ListItem/ListItem";
+import { Cards } from "./components/Cards";
+import { ListItem } from "./components/ListItem";
 
 import { IconContext } from "react-icons";
-import { FaCheck, FaInbox, FaListUl } from "react-icons/fa";
+import { FaListUl } from "react-icons/fa";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
 import s from "./Sidebar.module.scss";
+import useTasksStore from "../../store";
 
 const Sidebar = () => {
+  const { tasks } = useTasksStore();
+
   return (
     <aside className={s.sidebar}>
       <section className={s.upper}>
@@ -16,15 +19,17 @@ const Sidebar = () => {
           <div></div>
           <div></div>
         </section>
-        <section className={s.cards}>
-          <Card title="All tasks" color="#3f3f3f" icon={<FaInbox />} />
-          <Card title="Completed" color="#586771" icon={<FaCheck />} />
-        </section>
+        <Cards />
         <section className={s.lists}>
           <h4>My Lists</h4>
           <ul>
             <li>
-              <ListItem icon={<FaListUl />} color="#ff9500" title="Reminders" />
+              <ListItem
+                counter={tasks.length}
+                icon={<FaListUl />}
+                color="#ff9500"
+                title="Reminders"
+              />
             </li>
           </ul>
         </section>

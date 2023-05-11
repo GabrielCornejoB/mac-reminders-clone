@@ -1,20 +1,20 @@
 import { ReactNode } from "react";
-import Icon from "../../../ui/Icon/Icon";
+import { Icon } from "../../../ui";
 import s from "./Card.module.scss";
 
 interface Props {
   title: string;
   icon: ReactNode;
-  count?: number;
+  counter: number;
   color: string;
 }
 
-const Card = ({ title, icon, count = 12, color }: Props) => {
+const Card = ({ title, counter, icon, color }: Props) => {
   return (
     <div className={s.card}>
       <div className={s.upper}>
         <Icon color={color} icon={icon} />
-        <span className={s.count}>{count}</span>
+        <span className={s.count}>{counter}</span>
       </div>
       <h3 className={s.title}>{title}</h3>
     </div>

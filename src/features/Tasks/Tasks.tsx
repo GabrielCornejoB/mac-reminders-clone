@@ -21,7 +21,7 @@ const Tasks = () => {
         </div>
         <div className={s.headerTitle}>
           <h1 className={s.title}>Reminders</h1>
-          <h1 className={s.count}>4</h1>
+          <h1 className={s.count}>{tasks.length}</h1>
         </div>
       </header>
       <ul>
