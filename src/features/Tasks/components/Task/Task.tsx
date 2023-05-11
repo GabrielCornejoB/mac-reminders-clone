@@ -1,8 +1,9 @@
 import { useRef } from "react";
+import useTasksStore from "../../../../store";
+import { toast } from "sonner";
 import { Task as TaskModel } from "../../Task.model";
 
 import s from "./Task.module.scss";
-import useTasksStore from "../../../../store";
 
 interface Props {
   task: TaskModel;
@@ -20,6 +21,7 @@ const Task = ({ task }: Props) => {
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Delete") {
       deleteTask(task.id);
+      toast("Task has been deleted succesfully");
     }
   };
   return (

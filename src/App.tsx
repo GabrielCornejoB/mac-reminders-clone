@@ -1,9 +1,11 @@
-import s from "./App.module.scss";
+import { Toaster } from "sonner";
 import { Sidebar, Tasks } from "./features";
+import s from "./App.module.scss";
 
 function App() {
   return (
     <div className={s.wrapper}>
+      <Toaster />
       <Sidebar />
       <Tasks />
     </div>
