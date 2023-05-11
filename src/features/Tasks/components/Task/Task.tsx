@@ -1,30 +1,38 @@
-import { IconContext } from "react-icons";
-import { FaCheck } from "react-icons/fa";
+import { useRef } from "react";
+import { Task as TaskModel } from "../../Task.model";
+
 import s from "./Task.module.scss";
-import { useState } from "react";
 
-const Task = () => {
-  const [isEditing, setIsEditing] = useState(false);
+interface Props {
+  task: TaskModel;
+  handleTaskCompletion: (id: string) => void;
+  handleTaskTextChange: (id: string, newText: string) => void;
+}
 
-  const handleCheckConfirmation = () => {
-    if (isEditing) setIsEditing(false);
+const Task = ({ task, handleTaskCompletion, handleTaskTextChange }: Props) => {
+  const ref = useRef<HTMLInputElement>(null);
+
+  const handleOnBlur = () => {
+    if (ref.current && ref.current.value !== task.text) {
+      handleTaskTextChange(task.id, ref.current.value);
+    }
   };
 
   return (
     <div className={s.task}>
-      <button>
+      <button
+        className={task.isCompleted ? s.completed : ""}
+        onClick={() => handleTaskCompletion(task.id)}
+      >
         <div className={s.inner}></div>
       </button>
+
       <input
         type="text"
-        onFocus={() => setIsEditing(true)}
-        onBlur={() => setIsEditing(false)}
+        ref={ref}
+        onBlur={handleOnBlur}
+        defaultValue={task.text}
       />
-      <IconContext.Provider
-        value={{ color: isEditing ? "#ff9500" : "transparent" }}
-      >
-        <FaCheck className={s.check} onClick={handleCheckConfirmation} />
-      </IconContext.Provider>
     </div>
   );
 };

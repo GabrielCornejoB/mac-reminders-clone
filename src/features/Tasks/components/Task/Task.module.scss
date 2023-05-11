@@ -20,7 +20,8 @@ $gap: 20px;
       width: 60%;
       border-radius: 50%;
     }
-    &:hover {
+    &:hover,
+    &.completed {
       border: 2px solid #ff9500;
       .inner {
         background: #ff9500;

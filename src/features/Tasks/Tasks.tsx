@@ -1,11 +1,15 @@
+import useTasksStore from "../../store";
+
+import Task from "./components/Task/Task";
+
 import { IconContext } from "react-icons";
 import { GoPlus } from "react-icons/go";
 import { MdIosShare } from "react-icons/md";
-
 import s from "./Tasks.module.scss";
-import Task from "./components/Task/Task";
 
 const Tasks = () => {
+  const { tasks, toggleTaskCompletion, updateTaskText } = useTasksStore();
+
   return (
     <main className={s.main}>
       <header className={s.header}>
@@ -21,9 +25,14 @@ const Tasks = () => {
         </div>
       </header>
       <ul>
-        <Task />
-        <Task />
-        <Task />
+        {tasks.map((task) => (
+          <Task
+            key={task.id}
+            task={task}
+            handleTaskCompletion={toggleTaskCompletion}
+            handleTaskTextChange={updateTaskText}
+          />
+        ))}
       </ul>
     </main>
   );
