@@ -8,7 +8,8 @@ import { MdIosShare } from "react-icons/md";
 import s from "./Tasks.module.scss";
 
 const Tasks = () => {
-  const { tasks, toggleTaskCompletion, updateTaskText } = useTasksStore();
+  const { tasks, toggleTaskCompletion, updateTaskText, createTask } =
+    useTasksStore();
 
   return (
     <main className={s.main}>
@@ -16,7 +17,7 @@ const Tasks = () => {
         <div className={s.headerButtons}>
           <IconContext.Provider value={{ size: "25px" }}>
             <MdIosShare className={s.icon} />
-            <GoPlus className={s.icon} />
+            <GoPlus className={s.icon} onClick={createTask} />
           </IconContext.Provider>
         </div>
         <div className={s.headerTitle}>

@@ -6,6 +6,7 @@ interface TasksStore {
   tasks: Task[];
   toggleTaskCompletion: (id: string) => void;
   updateTaskText: (id: string, newText: string) => void;
+  createTask: () => void;
 }
 
 const useTasksStore = create<TasksStore>((set) => ({
@@ -27,6 +28,10 @@ const useTasksStore = create<TasksStore>((set) => ({
       tasks: store.tasks.map((task) =>
         task.id === id ? { ...task, text: newText } : task
       ),
+    })),
+  createTask: () =>
+    set((store) => ({
+      tasks: [...store.tasks, { id: uuidv4(), isCompleted: false, text: "" }],
     })),
 }));
 
