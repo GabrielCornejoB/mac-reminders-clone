@@ -2,35 +2,39 @@ import { useRef } from "react";
 import { Task as TaskModel } from "../../Task.model";
 
 import s from "./Task.module.scss";
+import useTasksStore from "../../../../store";
 
 interface Props {
   task: TaskModel;
-  handleTaskCompletion: (id: string) => void;
-  handleTaskTextChange: (id: string, newText: string) => void;
 }
 
-const Task = ({ task, handleTaskCompletion, handleTaskTextChange }: Props) => {
+const Task = ({ task }: Props) => {
+  const { toggleTaskCompletion, updateTaskText, deleteTask } = useTasksStore();
   const ref = useRef<HTMLInputElement>(null);
 
   const handleOnBlur = () => {
     if (ref.current && ref.current.value !== task.text) {
-      handleTaskTextChange(task.id, ref.current.value);
+      updateTaskText(task.id, ref.current.value);
     }
   };
-
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Delete") {
+      deleteTask(task.id);
+    }
+  };
   return (
     <div className={s.task}>
       <button
         className={task.isCompleted ? s.completed : ""}
-        onClick={() => handleTaskCompletion(task.id)}
+        onClick={() => toggleTaskCompletion(task.id)}
       >
         <div className={s.inner}></div>
       </button>
-
       <input
         type="text"
         ref={ref}
         onBlur={handleOnBlur}
+        onKeyDown={(e) => handleKeyDown(e)}
         defaultValue={task.text}
       />
     </div>

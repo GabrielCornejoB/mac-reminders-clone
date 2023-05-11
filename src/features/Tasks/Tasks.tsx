@@ -8,8 +8,7 @@ import { MdIosShare } from "react-icons/md";
 import s from "./Tasks.module.scss";
 
 const Tasks = () => {
-  const { tasks, toggleTaskCompletion, updateTaskText, createTask } =
-    useTasksStore();
+  const { tasks, createTask } = useTasksStore();
 
   return (
     <main className={s.main}>
@@ -27,12 +26,7 @@ const Tasks = () => {
       </header>
       <ul>
         {tasks.map((task) => (
-          <Task
-            key={task.id}
-            task={task}
-            handleTaskCompletion={toggleTaskCompletion}
-            handleTaskTextChange={updateTaskText}
-          />
+          <Task key={task.id} task={task} />
         ))}
       </ul>
     </main>
