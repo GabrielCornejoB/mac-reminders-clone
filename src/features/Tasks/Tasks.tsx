@@ -8,7 +8,7 @@ import { ImInfo } from "react-icons/im";
 import s from "./Tasks.module.scss";
 
 const Tasks = () => {
-  const { tasks, createTask } = useTasksStore();
+  const { tasks, createTask, color } = useTasksStore();
 
   return (
     <main className={s.main}>
@@ -19,7 +19,7 @@ const Tasks = () => {
             <GoPlus className={s.icon} onClick={createTask} />
           </IconContext.Provider>
         </div>
-        <div className={s.headerTitle}>
+        <div className={s.headerTitle} style={{ color: color }}>
           <h1 className={s.title}>Reminders</h1>
           <h1 className={s.count}>{tasks.length}</h1>
         </div>

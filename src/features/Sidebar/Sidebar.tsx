@@ -9,7 +9,7 @@ import s from "./Sidebar.module.scss";
 import useTasksStore from "../../store";
 
 const Sidebar = () => {
-  const { tasks } = useTasksStore();
+  const { tasks, color } = useTasksStore();
 
   return (
     <aside className={s.sidebar}>
@@ -27,7 +27,7 @@ const Sidebar = () => {
               <ListItem
                 counter={tasks.length}
                 icon={<FaListUl />}
-                color="#ff9500"
+                color={color}
                 title="Reminders"
               />
             </li>

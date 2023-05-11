@@ -4,6 +4,7 @@ import { Task } from "./features/Tasks/Task.model";
 
 interface TasksStore {
   tasks: Task[];
+  color: string;
   toggleTaskCompletion: (id: string) => void;
   createTask: () => void;
   updateTaskText: (id: string, newText: string) => void;
@@ -12,6 +13,7 @@ interface TasksStore {
 
 const useTasksStore = create<TasksStore>((set) => ({
   tasks: [],
+  color: "#ff9500",
   toggleTaskCompletion: (id: string) =>
     set((store) => ({
       tasks: store.tasks.map((task) =>
