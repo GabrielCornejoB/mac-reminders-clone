@@ -1,6 +1,19 @@
 import { create } from "zustand";
 import { v4 as uuidv4 } from "uuid";
 import { Task } from "./features/Tasks/Task.model";
+// import { ReactNode } from "react";
+
+// interface List {
+//   tasks: Task[];
+//   id: string;
+//   name: string;
+//   color: string;
+//   logo: ReactNode;
+// }
+// interface ListsStore {
+//   lists: List[];
+//   createList: (name: string, color: string, logo: ReactNode) => void;
+// }
 
 interface TasksStore {
   tasks: Task[];

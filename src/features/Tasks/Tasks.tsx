@@ -1,4 +1,5 @@
 import useTasksStore from "../../store";
+import { toast } from "sonner";
 
 import Task from "./components/Task/Task";
 
@@ -10,13 +11,21 @@ import s from "./Tasks.module.scss";
 const Tasks = () => {
   const { tasks, createTask, color } = useTasksStore();
 
+  const handleTaskCreation = () => {
+    if (tasks.every((task) => task.text)) {
+      createTask();
+    } else {
+      toast.error("You must first give a text to the empty To-do");
+    }
+  };
+
   return (
     <main className={s.main}>
       <header className={s.header}>
         <div className={s.headerButtons}>
           <IconContext.Provider value={{ size: "25px" }}>
             <ImInfo className={s.icon} />
-            <GoPlus className={s.icon} onClick={createTask} />
+            <GoPlus className={s.icon} onClick={handleTaskCreation} />
           </IconContext.Provider>
         </div>
         <div className={s.headerTitle} style={{ color: color }}>
