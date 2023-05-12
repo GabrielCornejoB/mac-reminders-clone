@@ -2,7 +2,7 @@ import useListsStore from "../../store";
 import { useParams } from "react-router-dom";
 
 import { toast } from "sonner";
-import Task from "./components/Task/Task";
+import Task from "../../features/Tasks/components/Task/Task";
 
 import { IconContext } from "react-icons";
 import { GoPlus } from "react-icons/go";

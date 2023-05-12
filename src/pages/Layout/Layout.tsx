@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { Toaster } from "sonner";
-import { Sidebar } from "../features";
-import s from "../styles/Layout.module.scss";
+import { Sidebar } from "../../features";
+import s from "./Layout.module.scss";
 
 const Layout = () => {
   return (

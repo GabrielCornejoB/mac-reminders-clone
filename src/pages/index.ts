@@ -1,4 +1,6 @@
-export { default as AllTasks } from "./AllTasks";
-export { default as CompletedTasks } from "./CompletedTasks";
-export { default as ErrorPage } from "./ErrorPage";
-export { default as Layout } from "./Layout";
+export * from "./AllTasks";
+export * from "./CompletedTasks";
+export * from "./ErrorPage";
+export * from "./Layout";
+export * from "./Tasks";
+export * from "./index";
