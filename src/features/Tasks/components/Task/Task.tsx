@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import useTasksStore from "../../../../store";
+import { useParams } from "react-router-dom";
 
 import { toast } from "sonner";
 import { Task as TaskModel } from "../../Task.model";
@@ -11,19 +12,19 @@ interface Props {
 }
 
 const Task = ({ task }: Props) => {
-  const listId = "123";
+  const { id } = useParams();
 
   const { toggleTaskCompletion, updateTask, deleteTask } = useTasksStore();
   const ref = useRef<HTMLInputElement>(null);
 
   const handleOnBlur = () => {
     if (ref.current && ref.current.value !== task.text) {
-      updateTask(listId, task.id, ref.current.value);
+      updateTask(id!, task.id, ref.current.value);
     }
   };
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Delete") {
-      deleteTask(listId, task.id);
+      deleteTask(id!, task.id);
       toast("Task has been deleted succesfully");
     }
   };
@@ -31,7 +32,7 @@ const Task = ({ task }: Props) => {
     <div className={s.task}>
       <button
         className={task.isCompleted ? s.completed : ""}
-        onClick={() => toggleTaskCompletion(listId, task.id)}
+        onClick={() => toggleTaskCompletion(id!, task.id)}
       >
         <div className={s.inner}></div>
       </button>

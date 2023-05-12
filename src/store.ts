@@ -2,7 +2,7 @@ import { create } from "zustand";
 import { v4 as uuidv4 } from "uuid";
 import { Task } from "./features/Tasks/Task.model";
 
-interface List {
+export interface List {
   tasks: Task[];
   id: string;
   name: string;
@@ -21,7 +21,7 @@ interface ListsStore {
 
 const initialList: List = {
   tasks: [],
-  id: "123",
+  id: uuidv4(),
   name: "Reminders",
   color: "#ff9500",
 };

@@ -1,23 +1,22 @@
-import { ReactNode } from "react";
+import { Link } from "react-router-dom";
 import { Icon } from "../../../ui";
+import { FaListUl } from "react-icons/fa";
 import s from "./ListItem.module.scss";
+import { List } from "../../../../store";
 
 interface Props {
-  icon: ReactNode;
-  color: string;
-  title: string;
-  counter: number;
+  list: List;
 }
 
-const ListItem = ({ icon, color, title, counter }: Props) => {
+const ListItem = ({ list }: Props) => {
   return (
-    <div className={s.listItem}>
+    <Link to={`/tasks/${list.id}`} className={s.listItem}>
       <div className={s.left}>
-        <Icon icon={icon} color={color} />
-        <h3>{title}</h3>
+        <Icon icon={<FaListUl />} color={list.color} />
+        <h3>{list.name}</h3>
       </div>
-      <span>{counter}</span>
-    </div>
+      <span>{list.tasks.length}</span>
+    </Link>
   );
 };
 export default ListItem;

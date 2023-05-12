@@ -30,12 +30,14 @@ const Cards = () => {
   return (
     <section className={s.cards}>
       <Card
+        linkTo="/"
         counter={getTasksLength()}
         title="All tasks"
         color="#3f3f3f"
         icon={<FaInbox />}
       />
       <Card
+        linkTo="/completed"
         counter={getCompletedTasksLength()}
         title="Completed"
         color="#586771"

@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Tasks } from "./features";
-import { AllTasks, ErrorPage, Layout } from "./pages";
+import { AllTasks, CompletedTasks, ErrorPage, Layout } from "./pages";
 
 const router = createBrowserRouter([
   {
@@ -9,7 +9,8 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <AllTasks /> },
-      { path: "taskList/:id", element: <Tasks /> },
+      { path: "completed", element: <CompletedTasks /> },
+      { path: "tasks/:id", element: <Tasks /> },
     ],
   },
 ]);

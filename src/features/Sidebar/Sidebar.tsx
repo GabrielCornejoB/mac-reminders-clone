@@ -6,7 +6,6 @@ import { Cards } from "./components/Cards";
 import { ListItem } from "./components/ListItem";
 
 import { IconContext } from "react-icons";
-import { FaListUl } from "react-icons/fa";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
 import s from "./Sidebar.module.scss";
@@ -37,12 +36,7 @@ const Sidebar = () => {
           <ul>
             {lists.map((list) => (
               <li key={list.id}>
-                <ListItem
-                  title={list.name}
-                  counter={list.tasks.length}
-                  color={list.color}
-                  icon={<FaListUl />}
-                />
+                <ListItem list={list} />
               </li>
             ))}
           </ul>
