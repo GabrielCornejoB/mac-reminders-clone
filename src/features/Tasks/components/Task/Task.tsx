@@ -9,22 +9,21 @@ import s from "./Task.module.scss";
 
 interface Props {
   task: TaskModel;
+  listId: string;
 }
 
-const Task = ({ task }: Props) => {
-  const { id } = useParams();
-
+const Task = ({ task, listId }: Props) => {
   const { toggleTaskCompletion, updateTask, deleteTask } = useTasksStore();
   const ref = useRef<HTMLInputElement>(null);
 
   const handleOnBlur = () => {
     if (ref.current && ref.current.value !== task.text) {
-      updateTask(id!, task.id, ref.current.value);
+      updateTask(listId!, task.id, ref.current.value);
     }
   };
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Delete") {
-      deleteTask(id!, task.id);
+      deleteTask(listId!, task.id);
       toast("Task has been deleted succesfully");
     }
   };
@@ -32,7 +31,7 @@ const Task = ({ task }: Props) => {
     <div className={s.task} title={task.id}>
       <button
         className={task.isCompleted ? s.completed : ""}
-        onClick={() => toggleTaskCompletion(id!, task.id)}
+        onClick={() => toggleTaskCompletion(listId!, task.id)}
       >
         <div className={s.inner}></div>
       </button>

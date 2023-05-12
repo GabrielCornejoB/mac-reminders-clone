@@ -5,4 +5,29 @@
   width: calc(100% - v.$sidebar-width);
   height: 100vh;
   padding: 15px 0;
+  @include m.flex(column, flex-start);
+  .header {
+    @include m.flex(row, space-between);
+    width: 100%;
+    padding: 20px 20px 0;
+    font-size: 2.5rem;
+    font-weight: 400;
+    color: v.$txt-color-alt;
+    .title {
+      font-weight: 800;
+      font-family: "Varela Round", sans-serif;
+    }
+  }
+  .lists {
+    width: 100%;
+    padding: 20px;
+    .subtitle {
+      font-weight: 800;
+      font-family: "Varela Round", sans-serif;
+      font-size: 1.85rem;
+    }
+    .list {
+      margin-bottom: 20px;
+    }
+  }
 }

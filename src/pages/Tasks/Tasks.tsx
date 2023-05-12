@@ -38,7 +38,7 @@ const Tasks = () => {
       </header>
       <ul>
         {list.tasks.map((task) => (
-          <Task key={task.id} task={task} />
+          <Task key={task.id} task={task} listId={id!} />
         ))}
       </ul>
     </main>
