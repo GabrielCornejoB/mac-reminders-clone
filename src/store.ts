@@ -77,7 +77,7 @@ const useListsStore = create<ListsStore>((set) => ({
     set((store) => ({
       lists: store.lists.map((list) =>
         list.id === listId
-          ? { ...list, tasks: list.tasks.filter((task) => task.id === taskId) }
+          ? { ...list, tasks: list.tasks.filter((task) => task.id !== taskId) }
           : list
       ),
     })),

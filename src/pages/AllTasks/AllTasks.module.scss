@@ -1,0 +1,8 @@
+@use "../../styles/variables" as v;
+@use "../../styles/mixins" as m;
+
+.main {
+  width: calc(100% - v.$sidebar-width);
+  height: 100vh;
+  padding: 15px 0;
+}

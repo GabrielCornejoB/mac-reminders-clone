@@ -29,7 +29,7 @@ const Task = ({ task }: Props) => {
     }
   };
   return (
-    <div className={s.task}>
+    <div className={s.task} title={task.id}>
       <button
         className={task.isCompleted ? s.completed : ""}
         onClick={() => toggleTaskCompletion(id!, task.id)}

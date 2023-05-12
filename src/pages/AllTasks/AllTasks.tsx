@@ -1,4 +1,6 @@
+import s from "./AllTasks.module.scss";
+
 const AllTasks = () => {
-  return <div>AllTasks</div>;
+  return <main className={s.main}>AllTasks</main>;
 };
 export default AllTasks;
