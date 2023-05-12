@@ -1,3 +1,5 @@
+import useListsStore from "../../store";
+
 import { Cards } from "./components/Cards";
 import { ListItem } from "./components/ListItem";
 
@@ -6,10 +8,9 @@ import { FaListUl } from "react-icons/fa";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
 import s from "./Sidebar.module.scss";
-import useTasksStore from "../../store";
 
 const Sidebar = () => {
-  const { tasks, color } = useTasksStore();
+  const { lists } = useListsStore();
 
   return (
     <aside className={s.sidebar}>
@@ -23,14 +24,16 @@ const Sidebar = () => {
         <section className={s.lists}>
           <h4>My Lists</h4>
           <ul>
-            <li>
-              <ListItem
-                counter={tasks.length}
-                icon={<FaListUl />}
-                color={color}
-                title="Reminders"
-              />
-            </li>
+            {lists.map((list) => (
+              <li key={list.id}>
+                <ListItem
+                  title={list.name}
+                  counter={list.tasks.length}
+                  color={list.color}
+                  icon={<FaListUl />}
+                />
+              </li>
+            ))}
           </ul>
         </section>
       </section>
