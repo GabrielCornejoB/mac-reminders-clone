@@ -5,7 +5,7 @@ import Task from "./components/Task/Task";
 
 import { IconContext } from "react-icons";
 import { GoPlus } from "react-icons/go";
-import { ImInfo } from "react-icons/im";
+import { BiTrash } from "react-icons/bi";
 import s from "./Tasks.module.scss";
 
 const Tasks = () => {
@@ -26,7 +26,7 @@ const Tasks = () => {
       <header className={s.header}>
         <div className={s.headerButtons}>
           <IconContext.Provider value={{ size: "25px" }}>
-            <ImInfo className={s.icon} />
+            <BiTrash className={s.icon} />
             <GoPlus className={s.icon} onClick={handleTaskCreation} />
           </IconContext.Provider>
         </div>
