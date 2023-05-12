@@ -18,6 +18,7 @@ const Sidebar = () => {
   const handleListCreation = () => {
     if (ref.current && ref.current.value && ref.current.value.trim().length) {
       createList(ref.current.value, "#ff9500");
+      toast(`List '${ref.current.value}' created succesfully`);
       ref.current.value = "";
     } else toast.error("Invalid list name");
   };
