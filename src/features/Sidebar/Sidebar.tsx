@@ -1,5 +1,7 @@
+import { useRef } from "react";
 import useListsStore from "../../store";
 
+import { toast } from "sonner";
 import { Cards } from "./components/Cards";
 import { ListItem } from "./components/ListItem";
 
@@ -10,7 +12,15 @@ import { AiOutlinePlusCircle } from "react-icons/ai";
 import s from "./Sidebar.module.scss";
 
 const Sidebar = () => {
-  const { lists } = useListsStore();
+  const { lists, createList } = useListsStore();
+  const ref = useRef<HTMLInputElement>(null);
+
+  const handleListCreation = () => {
+    if (ref.current && ref.current.value && ref.current.value.trim().length) {
+      createList(ref.current.value, "#ff9500");
+      ref.current.value = "";
+    } else toast.error("Invalid list name");
+  };
 
   return (
     <aside className={s.sidebar}>
@@ -38,10 +48,18 @@ const Sidebar = () => {
         </section>
       </section>
       <section className={s.lower}>
-        <IconContext.Provider value={{ size: "24px" }}>
-          <AiOutlinePlusCircle />
-        </IconContext.Provider>
-        <span>Create list</span>
+        <input
+          ref={ref}
+          type="text"
+          className={s.listNameInput}
+          placeholder="New list name"
+        />
+        <button className={s.createButton} onClick={handleListCreation}>
+          <IconContext.Provider value={{ size: "24px" }}>
+            <AiOutlinePlusCircle />
+          </IconContext.Provider>
+          <span>Create list</span>
+        </button>
       </section>
     </aside>
   );

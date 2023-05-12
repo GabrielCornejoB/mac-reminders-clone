@@ -1,19 +1,18 @@
 import { create } from "zustand";
 import { v4 as uuidv4 } from "uuid";
 import { Task } from "./features/Tasks/Task.model";
-import { ReactNode } from "react";
-import { FaListUl } from "react-icons/fa";
 
 interface List {
   tasks: Task[];
   id: string;
   name: string;
   color: string;
-  logo: ReactNode;
 }
 interface ListsStore {
   lists: List[];
-  createList: (name: string, color: string, logo: ReactNode) => void;
+  createList: (name: string, color: string) => void;
+  // updateList: (listId: string, newName: string) => void;
+  // deleteList: (listId: string) => void;
   createTask: (listId: string) => void;
   toggleTaskCompletion: (listId: string, taskId: string) => void;
   updateTask: (listId: string, taskId: string, newText: string) => void;
@@ -25,13 +24,12 @@ const initialList: List = {
   id: "123",
   name: "Reminders",
   color: "#ff9500",
-  logo: FaListUl,
 };
 const useListsStore = create<ListsStore>((set) => ({
   lists: [initialList],
-  createList: (name: string, color: string, logo: ReactNode) =>
+  createList: (name: string, color: string) =>
     set((store) => ({
-      lists: [...store.lists, { name, color, logo, tasks: [], id: uuidv4() }],
+      lists: [...store.lists, { name, color, tasks: [], id: uuidv4() }],
     })),
   createTask: (listId: string) =>
     set((store) => ({

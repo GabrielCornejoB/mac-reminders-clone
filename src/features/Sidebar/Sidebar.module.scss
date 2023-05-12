@@ -53,14 +53,27 @@
     }
   }
   .lower {
-    @include m.flex(row, flex-start);
-    gap: 10px;
+    @include m.flex(row, space-between);
+    width: 100%;
     color: v.$txt-color-alt;
     font-weight: 600;
-    transition: 0.1s ease-in;
-    cursor: pointer;
-    &:hover {
-      color: v.$txt-color-light;
+    .createButton {
+      @include m.flex(row, flex-start);
+      gap: 10px;
+      transition: 0.1s ease-in;
+      cursor: pointer;
+      width: max-content;
+      &:hover {
+        color: v.$txt-color-light;
+      }
+    }
+    .listNameInput {
+      width: 60%;
+      background: v.$gray-200;
+      color: v.$txt-color-alt;
+      padding: 5px 10px;
+      border-radius: 7.5px;
+      font-weight: 500;
     }
   }
 }
