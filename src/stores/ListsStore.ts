@@ -13,8 +13,14 @@ interface ListsStore {
   createList: (name: string, color: string) => void;
 }
 
+const initialList = {
+  id: uuid(),
+  name: "Reminders",
+  color: "#ff9500",
+};
+
 export const useListsStore = create<ListsStore>((set, get) => ({
-  lists: [],
+  lists: [initialList],
   getList: (id: string) => {
     const { lists } = get();
     return lists.find((list) => list.id === id);

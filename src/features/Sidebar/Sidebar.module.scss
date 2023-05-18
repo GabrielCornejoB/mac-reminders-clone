@@ -59,7 +59,7 @@
     font-weight: 600;
     .createButton {
       @include m.flex(row, flex-start);
-      gap: 10px;
+      gap: 5px;
       transition: 0.1s ease-in;
       cursor: pointer;
       width: max-content;
@@ -74,6 +74,15 @@
       padding: 5px 10px;
       border-radius: 7.5px;
       font-weight: 500;
+    }
+    .colorInput {
+      height: 30px;
+      width: 25px;
+      cursor: crosshair;
+    }
+    .lowerEnd {
+      @include m.flex(row, flex-end);
+      gap: 5px;
     }
   }
 }

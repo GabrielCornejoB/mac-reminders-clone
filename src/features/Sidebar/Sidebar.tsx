@@ -13,10 +13,17 @@ import s from "./Sidebar.module.scss";
 const Sidebar = () => {
   const { lists, createList } = useListsStore();
   const ref = useRef<HTMLInputElement>(null);
+  const colorRef = useRef<HTMLInputElement>(null);
 
   const handleListCreation = () => {
-    if (ref.current && ref.current.value && ref.current.value.trim().length) {
-      createList(ref.current.value, "#ff9500");
+    if (
+      ref.current &&
+      ref.current.value &&
+      ref.current.value.trim().length &&
+      colorRef.current &&
+      colorRef.current.value
+    ) {
+      createList(ref.current.value, colorRef.current.value);
       toast(`List '${ref.current.value}' created succesfully`);
       ref.current.value = "";
     } else toast.error("Invalid list name");
@@ -49,12 +56,21 @@ const Sidebar = () => {
           className={s.listNameInput}
           placeholder="New list name"
         />
-        <button className={s.createButton} onClick={handleListCreation}>
-          <IconContext.Provider value={{ size: "24px" }}>
-            <AiOutlinePlusCircle />
-          </IconContext.Provider>
-          <span>Create list</span>
-        </button>
+        <div className={s.lowerEnd}>
+          <input
+            ref={colorRef}
+            type="color"
+            name="color"
+            className={s.colorInput}
+            defaultValue="#ff9500"
+          />
+          <button className={s.createButton} onClick={handleListCreation}>
+            <IconContext.Provider value={{ size: "24px" }}>
+              <AiOutlinePlusCircle />
+            </IconContext.Provider>
+            <span>CREATE</span>
+          </button>
+        </div>
       </section>
     </aside>
   );

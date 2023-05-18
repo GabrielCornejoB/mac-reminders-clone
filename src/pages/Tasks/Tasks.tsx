@@ -26,7 +26,7 @@ const Tasks = () => {
     }
   };
 
-  if (!list) return <p>List is undefined</p>;
+  if (!list) throw Error;
   return (
     <main className={s.main}>
       <header className={s.header}>
@@ -36,7 +36,7 @@ const Tasks = () => {
             <GoPlus className={s.icon} onClick={handleTaskCreation} />
           </IconContext.Provider>
         </div>
-        <div className={s.headerTitle} style={{ color: "orange" }}>
+        <div className={s.headerTitle} style={{ color: list.color }}>
           <h1 className={s.title}>{list.name}</h1>
           <h1 className={s.count}>{tasks.length}</h1>
         </div>
