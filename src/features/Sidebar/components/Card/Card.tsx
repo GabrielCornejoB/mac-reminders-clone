@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { Icon } from "../../../ui";
 import s from "./Card.module.scss";
+import { Icon } from "@features/ui";
 
 interface Props {
   title: string;

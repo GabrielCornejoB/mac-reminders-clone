@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import useListsStore from "../../store";
+import { useListsStore } from "@stores/ListsStore";
 
 import { toast } from "sonner";
 import { Cards } from "./components/Cards";

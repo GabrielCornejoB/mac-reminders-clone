@@ -1,5 +1,6 @@
-import useListsStore from "../../store";
 import { useParams } from "react-router-dom";
+import { ITask, useTasksStore } from "@stores/TasksStore";
+import { useListsStore } from "@stores/ListsStore";
 
 import { toast } from "sonner";
 import Task from "../../features/Tasks/components/Task/Task";
@@ -11,17 +12,21 @@ import s from "./Tasks.module.scss";
 
 const Tasks = () => {
   const { id } = useParams();
-  const { lists: data, createTask } = useListsStore();
-  const list = data.find((list) => list.id === id);
+  const { getFilteredTasks, createTask } = useTasksStore();
+  const getList = useListsStore((s) => s.getList);
+
+  const tasks: ITask[] = id ? getFilteredTasks(id) : [];
+  const list = id && getList(id);
 
   const handleTaskCreation = () => {
-    if (list?.tasks.every((task) => task.text)) {
-      createTask(id!);
+    if (tasks.every((task) => task.text) && id) {
+      createTask(id);
     } else {
       toast.error("You must first give a text to the empty To-do");
     }
   };
-  if (list == undefined) return <p>a</p>;
+
+  if (!list) return <p>List is undefined</p>;
   return (
     <main className={s.main}>
       <header className={s.header}>
@@ -31,14 +36,14 @@ const Tasks = () => {
             <GoPlus className={s.icon} onClick={handleTaskCreation} />
           </IconContext.Provider>
         </div>
-        <div className={s.headerTitle} style={{ color: list.color }}>
+        <div className={s.headerTitle} style={{ color: "orange" }}>
           <h1 className={s.title}>{list.name}</h1>
-          <h1 className={s.count}>{list.tasks.length}</h1>
+          <h1 className={s.count}>{tasks.length}</h1>
         </div>
       </header>
       <ul>
-        {list.tasks.map((task) => (
-          <Task key={task.id} task={task} listId={id!} />
+        {tasks.map((task) => (
+          <Task key={task.id} task={task} />
         ))}
       </ul>
     </main>

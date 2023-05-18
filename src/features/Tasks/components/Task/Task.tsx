@@ -1,29 +1,26 @@
 import { useRef } from "react";
-import useTasksStore from "../../../../store";
-import { useParams } from "react-router-dom";
+// import { useParams } from "react-router-dom";
+import { ITask, useTasksStore } from "@stores/TasksStore";
 
 import { toast } from "sonner";
-import { Task as TaskModel } from "../../Task.model";
-
 import s from "./Task.module.scss";
 
 interface Props {
-  task: TaskModel;
-  listId: string;
+  task: ITask;
 }
 
-const Task = ({ task, listId }: Props) => {
-  const { toggleTaskCompletion, updateTask, deleteTask } = useTasksStore();
+const Task = ({ task }: Props) => {
+  const { updateTaskCompletion, updateTaskText, deleteTask } = useTasksStore();
   const ref = useRef<HTMLInputElement>(null);
 
   const handleOnBlur = () => {
     if (ref.current && ref.current.value !== task.text) {
-      updateTask(listId!, task.id, ref.current.value);
+      updateTaskText(task.id, ref.current.value);
     }
   };
   const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === "Delete") {
-      deleteTask(listId!, task.id);
+      deleteTask(task.id);
       toast("Task has been deleted succesfully");
     }
   };
@@ -31,7 +28,7 @@ const Task = ({ task, listId }: Props) => {
     <div className={s.task} title={task.id}>
       <button
         className={task.isCompleted ? s.completed : ""}
-        onClick={() => toggleTaskCompletion(listId!, task.id)}
+        onClick={() => updateTaskCompletion(task.id)}
       >
         <div className={s.inner}></div>
       </button>

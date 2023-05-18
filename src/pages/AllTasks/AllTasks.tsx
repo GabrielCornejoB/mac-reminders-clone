@@ -1,15 +1,17 @@
+import { useListsStore } from "@stores/ListsStore";
 import { Task } from "../../features";
-import useListsStore from "../../store";
 import s from "./AllTasks.module.scss";
+import { useTasksStore } from "@stores/TasksStore";
 
 const AllTasks = () => {
-  const { lists } = useListsStore();
+  const lists = useListsStore((s) => s.lists);
+  const { getFilteredTasks } = useTasksStore();
 
   return (
     <main className={s.main}>
       <header className={s.header}>
         <h1 className={s.title}>All Tasks</h1>
-        <h1>count</h1>
+        <h1>0</h1>
       </header>
       <ul className={s.lists}>
         {lists.map((list) => (
@@ -18,9 +20,9 @@ const AllTasks = () => {
               {list.name}
             </h2>
             <ul>
-              {list.tasks.map((task) => (
+              {getFilteredTasks(list.id).map((task) => (
                 <li key={task.id}>
-                  <Task task={task} listId={list.id} />
+                  <Task task={task} />
                 </li>
               ))}
             </ul>
