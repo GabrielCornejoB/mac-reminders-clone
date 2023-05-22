@@ -21,7 +21,7 @@ Developed with
   <a href="#stuff-i-learned">Stuff I learned</a> 
 </p>
 
-This project is a clone of the Mac Reminders app, developed solely for practice purposes. It faithfully replicates the functionality and user interface of the original app but does not store any tasks or generate any form of monetary benefits. Please note that this clone is intended for educational and personal use only and is not affiliated with or endorsed by Apple Inc.
+This project is a clone of the Mac Reminders app, developed solely for practice purposes. It faithfully replicates the functionality and user interface of the original app but does not store any tasks or generate any form of monetary benefits. Please note that this clone is intended for educational and personal use only and is not affiliated with or endorsed by Apple Inc. You can try the web app [here](https://gabrielcornejob.github.io/mac-reminders-clone/).
 
 ## **Key Features**
 
