@@ -32,7 +32,6 @@ const Tasks = () => {
       <header className={s.header}>
         <div className={s.headerButtons}>
           <IconContext.Provider value={{ size: "25px" }}>
-            <BiTrash className={s.icon} />
             <GoPlus className={s.icon} onClick={handleTaskCreation} />
           </IconContext.Provider>
         </div>

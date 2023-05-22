@@ -5,13 +5,14 @@ import s from "../AllTasks/AllTasks.module.scss";
 
 const CompletedTasks = () => {
   const lists = useListsStore((s) => s.lists);
-  const { getFilteredTasks } = useTasksStore();
+  const getFilteredTasks = useTasksStore((s) => s.getFilteredTasks);
+  const tasks = useTasksStore((s) => s.tasks);
 
   return (
     <main className={s.main}>
       <header className={s.header}>
         <h1 className={s.title}>All Tasks</h1>
-        <h1>0</h1>
+        <h1>{tasks.filter((t) => t.isCompleted).length}</h1>
       </header>
       <ul className={s.lists}>
         {lists.map((list) => (
