@@ -4,8 +4,6 @@
   <img src="./readme_assets/AllTasks.png">
 </p>
 
-<br>
-
 <h4 align="center" style="font-weight: 500">
 Developed with
 </h4>
