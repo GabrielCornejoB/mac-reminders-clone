@@ -11,14 +11,14 @@ const Cards = () => {
   return (
     <section className={s.cards}>
       <Card
-        linkTo="/"
+        linkTo="/mac-reminders-clone/"
         counter={tasks.length}
         title="All tasks"
         color="#3f3f3f"
         icon={<FaInbox />}
       />
       <Card
-        linkTo="/completed"
+        linkTo="/mac-reminders-clone/completed"
         counter={tasks.filter((t) => t.isCompleted).length}
         title="Completed"
         color="#586771"

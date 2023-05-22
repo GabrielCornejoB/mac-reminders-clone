@@ -14,7 +14,7 @@ const ListItem = ({ list }: Props) => {
   const tasks = useTasksStore((s) => s.getFilteredTasks(list.id));
 
   return (
-    <Link to={`/tasks/${list.id}`} className={s.listItem}>
+    <Link to={`/mac-reminders-clone/tasks/${list.id}`} className={s.listItem}>
       <div className={s.left}>
         <Icon icon={<FaListUl />} color={list.color} />
         <h3>{list.name}</h3>

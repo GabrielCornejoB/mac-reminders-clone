@@ -3,7 +3,7 @@ import { AllTasks, CompletedTasks, ErrorPage, Layout, Tasks } from "./pages";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/mac-reminders-clone/",
     element: <Layout />,
     errorElement: <ErrorPage />,
     children: [

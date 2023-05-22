@@ -11,7 +11,7 @@ const CompletedTasks = () => {
   return (
     <main className={s.main}>
       <header className={s.header}>
-        <h1 className={s.title}>All Tasks</h1>
+        <h1 className={s.title}>Completed Tasks</h1>
         <h1>{tasks.filter((t) => t.isCompleted).length}</h1>
       </header>
       <ul className={s.lists}>
