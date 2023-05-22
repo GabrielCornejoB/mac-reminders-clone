@@ -7,7 +7,6 @@ import Task from "../../features/Tasks/components/Task/Task";
 
 import { IconContext } from "react-icons";
 import { GoPlus } from "react-icons/go";
-import { BiTrash } from "react-icons/bi";
 import s from "./Tasks.module.scss";
 
 const Tasks = () => {
