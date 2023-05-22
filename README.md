@@ -1,7 +1,7 @@
 # **Mac Reminders App Clone**
 
 <p align="center">
-  <img src="./readme_assets/AllTasks.png" height="300px">
+  <img src="./readme_assets/AllTasks.png">
 </p>
 
 <br>
