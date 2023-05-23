@@ -50,7 +50,7 @@ If you want to use the app locally, type the following commands using your comma
     $ git clone https://github.com/GabrielCornejoB/mac-reminders-clone
 
     # Navigate to directory
-    $ cd mac-reminders.clone
+    $ cd mac-reminders-clone
 
     # Install required dependencies
     $ npm install
